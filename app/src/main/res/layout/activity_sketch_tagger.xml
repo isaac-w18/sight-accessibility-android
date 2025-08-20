@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SketchTagger">
+
+  <ImageView
+      android:id="@+id/sketchBoardImage"
+      android:layout_width="283dp"
+      android:layout_height="53dp"
+      android:scaleType="fitXY"
+      app:layout_constraintBottom_toTopOf="@+id/cusview"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+  <com.example.finalproject.MyDrawingArea
+      android:id="@+id/cusview"
+      android:layout_width="337dp"
+      android:layout_height="190dp"
+      android:background="@color/white"
+      android:layout_alignParentTop="true"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.118"
+      tools:ignore="MissingConstraints" />
+
+  <Button
+      android:id="@+id/tags"
+      android:layout_width="117dp"
+      android:layout_height="55dp"
+      android:onClick="getTags"
+      android:text="Get Tags"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/tagEntry"
+      app:layout_constraintHorizontal_bias="0.633"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cusview"
+      app:layout_constraintVertical_bias="0.069" />
+
+  <EditText
+      android:id="@+id/tagEntry"
+      android:layout_width="168dp"
+      android:layout_height="40dp"
+      android:background="@drawable/border"
+      android:text=""
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.773"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cusview"
+      app:layout_constraintVertical_bias="0.1" />
+
+  <Button
+      android:id="@+id/clear"
+      android:layout_width="117dp"
+      android:layout_height="55dp"
+      android:onClick="reset"
+      android:text="Clear"
+      app:layout_constraintBottom_toTopOf="@+id/find"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.146"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tags"
+      app:layout_constraintVertical_bias="0.625" />
+
+  <Button
+      android:id="@+id/save"
+      android:layout_width="142dp"
+      android:layout_height="55dp"
+      android:onClick="save"
+      android:text="Save"
+      app:layout_constraintBottom_toTopOf="@+id/textView2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.739"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tagEntry"
+      app:layout_constraintVertical_bias="0.575" />
+
+  <Button
+      android:id="@+id/find"
+      android:layout_width="115dp"
+      android:layout_height="58dp"
+      android:onClick="loadImages"
+      android:text="Find"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.152"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.598" />
+
+  <EditText
+      android:id="@+id/textView2"
+      android:layout_width="164dp"
+      android:layout_height="44dp"
+      android:background="@drawable/border"
+      android:text=""
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.321"
+      app:layout_constraintStart_toEndOf="@+id/find"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.586" />
+
+  <Button
+      android:id="@+id/back"
+      android:layout_width="110dp"
+      android:layout_height="50dp"
+      android:layout_marginBottom="8dp"
+      android:onClick="goBack"
+      android:text="Back"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <ListView
+      android:id="@+id/sketchList"
+      android:layout_width="409dp"
+      android:layout_height="179dp"
+      android:layout_marginBottom="8dp"
+      app:layout_constraintBottom_toTopOf="@+id/back"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/sketchBoardText"
+      android:layout_width="183dp"
+      android:layout_height="41dp"
+      android:text="Sketch Board"
+      android:textAlignment="center"
+      android:textColor="#000000"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.023" />
+
+  <TextView
+      android:id="@+id/drawings"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Drawings:"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.045"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/textView"
+      app:layout_constraintVertical_bias="0.643" />
+
+  <ImageView
+      android:id="@+id/sketchingBoard"
+      android:layout_width="343dp"
+      android:layout_height="192dp"
+      android:layout_alignParentBottom="true"
+      android:alpha=".5"
+      android:scaleType="fitXY"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.521"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/sketchBoardImage"
+      app:layout_constraintVertical_bias="0.109"
+      tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
