@@ -145,7 +145,7 @@ public class TagGetter {
         HttpTransport httpTransport = AndroidHttp.newCompatibleTransport();
         GsonFactory jsonFactory = GsonFactory.getDefaultInstance();
         Vision.Builder builder = new Vision.Builder(httpTransport, jsonFactory, null);
-        builder.setVisionRequestInitializer(new VisionRequestInitializer("AIzaSyB36MBRgHGaDhimbD57P3Lyg3S_tfOl8z0"));
+        builder.setVisionRequestInitializer(new VisionRequestInitializer("API_KEY"));
         Vision vision = builder.build();
 
         //4. CALL Vision.Images.Annotate
